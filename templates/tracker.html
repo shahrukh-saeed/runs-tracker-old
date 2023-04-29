@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link = rel="stylesheet" href="/static/home.css"/>
     <title>Runs Tracker</title>
 </head>
 <body>
-    tracker
+    <h1 class="title">Runs Tracker</h1>
+
+    <div id="gameshistory">
+        {% for elem in games %}
+            {% if elem['username'] == username %}
+                {% for game in elem['games'] %}
+                    <h3>Game {{ game['id'] }}</h3>
+                    <div>Team 1: {{ game['team1'] }}</div>
+                    <div>Team 2: {{ game['team2'] }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
 </body>
 </html>

@@ -11,9 +11,13 @@
     <body>
         <h1 class="title">Runs Tracker</h1>
         <form method="post" action="/tracker">
-            <label for="username">Username <input name="username" type="text" required /></label>
-            <label for="password">Password <input  name="password" type="password" required /></label>
+            <label for="username">Username <br> <input name="username" type="text" required /></label>
+            <label for="password">Password <br> <input  name="password" type="password" required /></label>
+            
+            <input class="inline" type="button" onclick="window.location.href='/newaccount';" value="Create New Account"/>
             <input class="inline" type="submit" value="Login"/>
+
+            {% include 'error.html' %}
         </form>
         
     </body>
