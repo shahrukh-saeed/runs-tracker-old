@@ -43,6 +43,7 @@ input {
 }
 
 input[type="submit"] {
+    font-size: 20px;
     margin-top: 2.5em;
     display: inline-block;
     background-color: white;
