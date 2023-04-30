@@ -14,8 +14,8 @@
             <label for="username">Username <br> <input name="username" type="text" required /></label>
             <label for="password">Password <br> <input  name="password" type="password" required /></label>
             
-            <input class="inline" type="button" onclick="window.location.href='/newaccount';" value="Create New Account"/>
-            <input class="inline" type="submit" value="Login"/>
+            <input type="submit" value="Login"/><br>
+            <input type="button" onclick="window.location.href='/newaccount';" value="Create Account"/>
 
             {% include 'error.html' %}
         </form>

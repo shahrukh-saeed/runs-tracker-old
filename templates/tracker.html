@@ -10,6 +10,8 @@
 <body>
     <h1 class="title">Runs Tracker</h1>
 
+    <input id="newgame" type="button" onclick="window.location.href='/tracker/game';" value="Start New Game"/>
+
     <div id="gameshistory">
         {% for elem in games %}
             {% if elem['username'] == username %}

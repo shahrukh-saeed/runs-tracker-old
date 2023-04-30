@@ -66,5 +66,9 @@ def tracker():
     flash('Incorrect Username or Password', 'error')
     return render_template('home.html')
 
+@app.route("/tracker/game", methods=['post', 'get'])
+def game():
+    return render_template('game.html')
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

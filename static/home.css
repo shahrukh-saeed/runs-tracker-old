@@ -11,6 +11,8 @@ body {
     padding: 10px;
     border-radius: 20px;
     border: 2px solid rgb(0, 0, 0);
+    margin: center;
+    min-width: 300px;
 }
 
 form {
@@ -21,11 +23,6 @@ form {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
     text-align: center;
-}
-
-.inline {
-    width: unset;
-    margin: 0 0.5em 0 0;
 }
 
 label {
@@ -49,13 +46,20 @@ input[type="submit"] {
     color:rgb(0, 0, 0);
     font-size: 20px;
     margin-top: 2.5em;
-    display: inline-block;
+    width: 197.53px;
+}
+
+input[type="button"] {
+    color:rgb(0, 0, 0);
+    font-size: 20px;
+    margin-top: 1em;
+    width: 197.53px;
 }
 
 #error {
     margin: 0 auto;
     padding: 5px;
-    width: 180px;
+    width: 197.53px;
     border-radius: 20px;
     font-size: 20px;
     background-color: white;
@@ -69,5 +73,43 @@ input[type="submit"] {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
     width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-top: 26.8px;
     text-align: center;
+}
+
+#newgame {
+    min-width: 300px;
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+}
+
+.container {
+    display: flex;
+}
+
+.box {
+    border-radius: 20px;
+    width: 50%;
+    border: 2px solid rgb(0, 0, 0);
+    margin: 10px;
+    text-align: center;
+}
+
+.runs {
+    border-radius: 20px;
+    width: 50%;
+    border-width: 2px;
+    border-bottom: solid;
+    border-color: rgb(0, 0, 0);
+    margin: 0.5em auto;
+    text-align: center;
+}
+
+.runbutton {
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
 }
