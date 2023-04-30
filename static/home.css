@@ -102,6 +102,7 @@ input[type="button"] {
     width: 50%;
     border: 2px solid rgb(0, 0, 0);
     text-align: center;
+    display: block;
 }
 
 #right-box {
@@ -118,7 +119,12 @@ input[type="button"] {
 }
 
 .runbutton {
-    margin: auto;
+    border-style: solid;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    display: block;
 }
 
 #endgame {
@@ -127,5 +133,6 @@ input[type="button"] {
 }
 
 .runform {
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 }
