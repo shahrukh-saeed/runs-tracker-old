@@ -10,23 +10,35 @@
 <body>
     <h1 class="title">Runs Tracker</h1>
 
-    <div class="container">
-        <div class="box">
+    <form method="post" action='/tracker/game/end'>
+        <input type="hidden" name="username" value="{{username}}"/>
+        <input id="newgame" type="submit" value="End Game"/>
+    </form>
+
+
+    <div class="bigcontainer">
+        <div id="left-box" class="box">
+
             <div class="container">
-                <div class="box runbutton">
-                    1
-                </div>
-                <div class="box runbutton">
-                    2
-                </div>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="1"/>
+                </form>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="2"/>
+                </form>
             </div>
+
             <div class="container">
-                <div class="box runbutton">
-                    4
-                </div>
-                <div class="box runbutton">
-                    6
-                </div>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="4"/>
+                </form>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="6"/>
+                </form>
             </div>
 
 
@@ -37,23 +49,30 @@
                 6
             </div>
         </div>
-        <div class="box">
+        <div id="right-box" class="box">
+
             <div class="container">
-                <div class="box runbutton">
-                    1
-                </div>
-                <div class="box runbutton">
-                    2
-                </div>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="1"/>
+                </form>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="2"/>
+                </form>
             </div>
+
             <div class="container">
-                <div class="box runbutton">
-                    4
-                </div>
-                <div class="box runbutton">
-                    6
-                </div>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="4"/>
+                </form>
+                <form class="runform" method="post" action='/tracker/game/end'>
+                    <input type="hidden" name="username" value="{{username}}"/>
+                    <input class="runbutton" type="submit" value="6"/>
+                </form>
             </div>
+
             <div class="runs">
                 6
             </div>
