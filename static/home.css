@@ -1,19 +1,24 @@
 body {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-}
-
+    background-image: url(Grass\ Background.jpg);
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: rgb(255, 255, 255, 0.9);
+}   
 
 .title {
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    color: rgb(255, 255, 255, 0.9);
     text-align: center;
     padding: 10px;
     border-radius: 20px;
-    border: 2px solid rgb(0, 0, 0);
     margin: center;
     min-width: 300px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .accountform {
@@ -21,9 +26,9 @@ body {
     max-width: 500px;
     margin: 0 auto;
     padding: 50px;
-    border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 label {
@@ -33,28 +38,30 @@ label {
 }
 
 input {
-    color: black;
+    color: rgb(255, 255, 255, 0.9);
     margin: 10px 0 0 0;
     width: 180px;
     min-height: 2em;
     border-radius: 20px;
     font-size: 20px;
-    background-color: white;
-    border: 2px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
 }
 
 input[type="submit"] {
-    color:rgb(0, 0, 0);
+    color: rgb(255, 255, 255, 0.9);
     font-size: 20px;
     margin-top: 2.5em;
     width: 197.53px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 input[type="button"] {
-    color:rgb(0, 0, 0);
+    color: rgb(255, 255, 255, 0.9);
     font-size: 20px;
     margin-top: 1em;
     width: 197.53px;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 #error {
@@ -63,21 +70,21 @@ input[type="button"] {
     width: 197.53px;
     border-radius: 20px;
     font-size: 20px;
-    background-color: white;
-    border: 2px solid rgb(0, 0, 0);
-    color:rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: rgb(255, 255, 255, 0.9);
     margin-top: 2.5em;
 }
 
 #gameshistory {
     padding-bottom: 1.17em;
-    border: 2px solid rgb(0, 0, 0);
+    padding-top: 0.1em;
     border-radius: 20px;
     width: 50%;
     min-width: 300px;
     margin: 0 auto;
     margin-top: 26.8px;
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 #newgame {
@@ -85,6 +92,15 @@ input[type="button"] {
     width: 50%;
     display: block;
     margin: 45px auto;
+    padding: 0px;
+}
+
+#endgame {
+    min-width: 300px;
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+    margin-bottom: 26.8px;
     padding: 0px;
 }
 
@@ -126,7 +142,7 @@ input[type="button"] {
 }
 
 .bigcontainer {
-    margin: 26.8px auto;
+    margin: 0px auto;
     justify-content: center;
     display: flex;
 }
@@ -134,13 +150,25 @@ input[type="button"] {
 .box {
     border-radius: 20px;
     width: 50%;
-    border: 2px solid rgb(0, 0, 0);
     text-align: center;
     display: block;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.teamtitle {
+    border-radius: 20px;
+    width: 50%;
+    text-align: center;
+    display: block;
+    margin: 0;
 }
 
 #right-box {
-    border-left: none;
+    margin-left: 2px;
+}
+
+#left-box {
+    margin-right: 2px;
 }
 
 .runs {
@@ -153,15 +181,9 @@ input[type="button"] {
 }
 
 .runbutton {
-    border-style: solid;
     margin: 0 auto;
     width: 90% !important;
     max-width: 197.53px;
-}
-
-#endgame {
-    display: block;
-    margin: 26.8px auto;
 }
 
 .lastrunbutton {
@@ -170,12 +192,10 @@ input[type="button"] {
 
 #team1vsteam2 {
     margin-bottom: 0;
-    line-height: 30px;
 }
 
 #date {
     font-size: 16px;
-    line-height: 0;
 }
 
 #team1name {

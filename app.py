@@ -59,7 +59,7 @@ def tracker():
         if acc['username'] == data['username'] and acc['password'] == data['password']:
             for elem in GAMES:
                 if elem['username'] == data['username']:
-                    return render_template('tracker.html', games=elem['games'], username=data['username'])
+                    return render_template('tracker.html', games=reversed(elem['games']), username=data['username'])
             return render_template('tracker.html', games=[], username=data['username'])
     
     flash('Incorrect Username or Password', 'error')
@@ -71,7 +71,7 @@ def trackerGameEnd():
 
     for elem in GAMES:
         if elem['username'] == username:
-            return render_template('tracker.html', games=elem['games'], username=username)
+            return render_template('tracker.html', games=reversed(elem['games']), username=username)
 
 @app.route("/tracker/game", methods=['post', 'get'])
 def game():
@@ -84,7 +84,7 @@ def game():
     for elem in GAMES:
         if elem['username'] == username:
             elem['games'].append({'id': id, 'teamname1':teamname1, 'teamname2':teamname2,'team1':0, 'team2':0, 'runs1':[], 'runs2':[]})
-            return render_template('game.html', team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
+            return render_template('game.html', teamname1=teamname1, teamname2=teamname2, team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
 
     GAMES.append(
         {
@@ -103,7 +103,7 @@ def game():
         }
     )
     
-    return render_template('game.html', team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
+    return render_template('game.html', teamname1=teamname1, teamname2=teamname2, team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
 
 @app.route("/tracker/game/add", methods=['post', 'get'])
 def trackerGameRun():
@@ -119,11 +119,11 @@ def trackerGameRun():
                     if team == "team1":
                         game['team1'] += int(runs)
                         game['runs1'].append(int(runs))
-                        return render_template('game.html', team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
                     elif team == "team2":
                         game['team2'] += int(runs)
                         game['runs2'].append(int(runs))
-                        return render_template('game.html', team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
