@@ -10,16 +10,23 @@
 <body>
     <h1 class="title">Runs Tracker</h1>
 
-    <form method="post" action='/tracker/game'>
+    <input id="logout" type="button" onclick="window.location.href='/';" value="Logout"/>
+
+    <form id="newgameform" method="post" action='/tracker/game'>
         <input type="hidden" name="username" value="{{username}}"/>
+        <div id="gamename">Team 1</div>
+        <input id="gamenameinput" name="teamname1" type="text" required />
+        <div id="gamename">Team 2</div>
+        <input id="gamenameinput" name="teamname2" type="text" required />
         <input id="newgame" type="submit" value="Start New Game"/>
     </form>
 
     <div id="gameshistory">
         {% for game in games %}
-            <h3>Game {{ game['id'] }}</h3>
-            <div>Team 1: {{ game['team1'] }}</div>
-            <div>Team 2: {{ game['team2'] }}</div>
+            <h3 id="team1vsteam2">{{ game['teamname1'] + " - " + game['teamname2'] }}</h3>
+            <small id="date"> {{ game['id'] }} </small>
+            <div id="team1name">{{ game['teamname1']}}: {{ game['team1'] }}</div>
+            <div>{{ game['teamname2']}}: {{ game['team2'] }}</div>
         {% endfor %}
     </div>
 </body>

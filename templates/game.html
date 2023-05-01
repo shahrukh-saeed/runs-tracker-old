@@ -18,40 +18,36 @@
     <div class="bigcontainer">
         <div id="left-box" class="box">
 
-            <div>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team1"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="1"/>
-                    <input class="runbutton" type="submit" value="1"/>
-                </form>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team1"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="2"/>
-                    <input class="runbutton" type="submit" value="2"/>
-                </form>
-            </div>
+            <form class="runform" method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team1"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="1"/>
+                <input class="runbutton" type="submit" value="1"/>
+            </form>
+            <form method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team1"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="2"/>
+                <input class="runbutton" type="submit" value="2"/>
+            </form>
+            <form method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team1"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="4"/>
+                <input class="runbutton" type="submit" value="4"/>
+            </form>
+            <form class="lastrunbutton" method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team1"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="6"/>
+                <input class="runbutton" type="submit" value="6"/>
+            </form>
 
-            <div>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team1"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="4"/>
-                    <input class="runbutton" type="submit" value="4"/>
-                </form>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team1"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="6"/>
-                    <input class="runbutton" type="submit" value="6"/>
-                </form>
-            </div>
-
+            <div> {{ team1 }} </div>
             {% for i in range(runs1|length - 1, -1, -1) %}
                 <div class="runs"> {{ runs1[i] }} </div>
             {% endfor %}
@@ -59,40 +55,37 @@
         </div>
         <div id="right-box" class="box">
 
-            <div>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team2"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="1"/>
-                    <input class="runbutton" type="submit" value="1"/>
-                </form>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team2"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="2"/>
-                    <input class="runbutton" type="submit" value="2"/>
-                </form>
-            </div>
+            <form method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team2"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="1"/>
+                <input class="runbutton" type="submit" value="1"/>
+            </form>
+            <form method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team2"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="2"/>
+                <input class="runbutton" type="submit" value="2"/>
+            </form>
+            <form method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team2"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="4"/>
+                <input class="runbutton" type="submit" value="4"/>
+            </form>
+            <form class="lastrunbutton" method="post" action='/tracker/game/add'>
+                <input type="hidden" name="team" value="team2"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input type="hidden" name="runs" value="6"/>
+                <input class="runbutton" type="submit" value="6"/>
+            </form>
+            
 
-            <div>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team2"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="4"/>
-                    <input class="runbutton" type="submit" value="4"/>
-                </form>
-                <form class="runform" method="post" action='/tracker/game/add'>
-                    <input type="hidden" name="team" value="team2"/>
-                    <input type="hidden" name="id" value="{{id}}"/>
-                    <input type="hidden" name="username" value="{{username}}"/>
-                    <input type="hidden" name="runs" value="6"/>
-                    <input class="runbutton" type="submit" value="6"/>
-                </form>
-            </div>
-
+            <div> {{ team2 }} </div>
             {% for i in range(runs2|length - 1, -1, -1) %}
                 <div class="runs"> {{ runs2[i] }} </div>
             {% endfor %}

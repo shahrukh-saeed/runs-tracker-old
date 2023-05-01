@@ -84,7 +84,41 @@ input[type="button"] {
     min-width: 300px;
     width: 50%;
     display: block;
+    margin: 45px auto;
+    padding: 0px;
+}
+
+#logout {
+    min-width: 300px;
+    width: 50%;
+    display: block;
     margin: 10px auto;
+    padding: 0px;
+}
+
+#gamename {
+    min-width: 300px;
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+    font-size: 20px;
+    padding: 0px;
+}
+
+#gamenameinput {
+    min-width: 300px;
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+    font-size: 20px;
+    padding: 0px;
+}
+
+#newgameform {
+    margin-top: 26.8px;
+    margin-bottom: 48.8px;
+    text-align: center;
+    padding: 0px;
 }
 
 .container {
@@ -121,10 +155,8 @@ input[type="button"] {
 .runbutton {
     border-style: solid;
     margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0;
-    display: block;
+    width: 90% !important;
+    max-width: 197.53px;
 }
 
 #endgame {
@@ -132,7 +164,20 @@ input[type="button"] {
     margin: 26.8px auto;
 }
 
-.runform {
-    margin: 0;
-    padding: 0;
+.lastrunbutton {
+    margin-bottom: 26.8px;
+}
+
+#team1vsteam2 {
+    margin-bottom: 0;
+    line-height: 30px;
+}
+
+#date {
+    font-size: 16px;
+    line-height: 0;
+}
+
+#team1name {
+    margin-top: 10px;
 }

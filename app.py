@@ -1,3 +1,4 @@
+from datetime import datetime
 import random
 from flask import Flask, flash, jsonify, render_template, request
 
@@ -8,10 +9,6 @@ ACCOUNTS = [
     {
         'username': 'test1',
         'password': '1',
-    },
-    {
-        'username': 'test2',
-        'password': '2'
     }
 ]
 
@@ -20,28 +17,22 @@ GAMES = [
         'username': 'test1',
         'games': [
             {
-                'id': 1,
+                'id': "1",
+                'teamname1': "A",
+                'teamname2': "B",
                 'team1': 50,
                 'team2': 60,
                 'runs1': [1, 2, 4, 6, 2, 1],
                 'runs2': [1, 4, 6]
             },
             {
-                'id': 2,
+                'id': "2",
+                'teamname1': "C",
+                'teamname2': "D",
                 'team1': 70,
                 'team2': 80,
                 'runs1': [1, 2, 4, 6, 2, 1],
                 'runs2': [1, 4, 6]
-            }
-        ]
-    },
-    {
-        'username': 'test2',
-        'games': [
-            {
-                'id': 2,
-                'team1': 35,
-                'team2': 30
             }
         ]
     }
@@ -85,12 +76,15 @@ def trackerGameEnd():
 @app.route("/tracker/game", methods=['post', 'get'])
 def game():
     username = request.form['username']
-    id = random.randint(0,100)
+    teamname1 = request.form['teamname1']
+    teamname2 = request.form['teamname2']
+    dt = datetime.now()
+    id = dt.strftime("%d/%m/%Y %H:%M:%S")
 
     for elem in GAMES:
         if elem['username'] == username:
-            elem['games'].append({'id': id, 'team1':0, 'team2':0, 'runs1':[], 'runs2':[]})
-            return render_template('game.html', runs1=[], runs2=[], id=id, username=username)
+            elem['games'].append({'id': id, 'teamname1':teamname1, 'teamname2':teamname2,'team1':0, 'team2':0, 'runs1':[], 'runs2':[]})
+            return render_template('game.html', team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
 
     GAMES.append(
         {
@@ -98,6 +92,8 @@ def game():
             'games': [
                 {
                     'id':id,
+                    'teamname1':teamname1,
+                    'teamname2':teamname2,
                     'team1':0,
                     'team2':0,
                     'runs1':[],
@@ -107,7 +103,7 @@ def game():
         }
     )
     
-    return render_template('game.html', runs1=[], runs2=[], id=id, username=username)
+    return render_template('game.html', team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
 
 @app.route("/tracker/game/add", methods=['post', 'get'])
 def trackerGameRun():
@@ -123,11 +119,11 @@ def trackerGameRun():
                     if team == "team1":
                         game['team1'] += int(runs)
                         game['runs1'].append(int(runs))
-                        return render_template('game.html', runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        return render_template('game.html', team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
                     elif team == "team2":
                         game['team2'] += int(runs)
                         game['runs2'].append(int(runs))
-                        return render_template('game.html', runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        return render_template('game.html', team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
