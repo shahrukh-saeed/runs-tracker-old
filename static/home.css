@@ -1,6 +1,6 @@
 body {
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
     background-image: url(Grass\ Background.jpg);
     background-repeat: no-repeat; 
     background-attachment: fixed;
@@ -53,7 +53,7 @@ input[type="submit"] {
     font-size: 20px;
     margin-top: 2.5em;
     width: 197.53px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 255, 0, 0.6);
 }
 
 input[type="button"] {
@@ -88,10 +88,10 @@ input[type="button"] {
 }
 
 #newgame {
-    min-width: 300px;
+    min-width: 250px;
     width: 50%;
     display: block;
-    margin: 45px auto;
+    margin: 26.8px auto;
     padding: 0px;
 }
 
@@ -102,6 +102,7 @@ input[type="button"] {
     margin: 10px auto;
     margin-bottom: 26.8px;
     padding: 0px;
+    background-color: rgba(255, 0, 0, 0.6);
 }
 
 #logout {
@@ -110,6 +111,7 @@ input[type="button"] {
     display: block;
     margin: 10px auto;
     padding: 0px;
+    background-color: rgba(255, 0, 0, 0.6);
 }
 
 #gamename {
@@ -119,10 +121,11 @@ input[type="button"] {
     margin: 10px auto;
     font-size: 20px;
     padding: 0px;
+    border-radius: 20px;
 }
 
 #gamenameinput {
-    min-width: 300px;
+    min-width: 250px;
     width: 50%;
     display: block;
     margin: 10px auto;
@@ -131,10 +134,16 @@ input[type="button"] {
 }
 
 #newgameform {
-    margin-top: 26.8px;
-    margin-bottom: 48.8px;
     text-align: center;
-    padding: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    width: 50%;
+    margin: 26.8px auto;
+    min-width: 300px;
 }
 
 .container {
@@ -200,4 +209,8 @@ input[type="button"] {
 
 #team1name {
     margin-top: 10px;
+}
+
+#cancelbutton {
+    background-color: rgba(255, 0, 0, 0.6);
 }
