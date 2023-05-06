@@ -173,11 +173,11 @@ input[type="button"] {
 }
 
 #right-box {
-    margin-left: 2px;
+    margin-left: 3px;
 }
 
 #left-box {
-    margin-right: 2px;
+    margin-right: 3px;
 }
 
 .runs {
@@ -214,3 +214,27 @@ input[type="button"] {
 #cancelbutton {
     background-color: rgba(255, 0, 0, 0.6);
 }
+
+#deletebutton {
+    margin-top: 0px;
+    background-color: rgba(255, 0, 0, 0.6);
+    font-size: small;
+    width: 100px;
+}
+
+#resumebutton {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: small;
+    width: 100px;
+}
+
+.undobutton {
+    margin-top: 26.8px !important;
+    margin-bottom: 26.8px !important;
+    background-color: rgba(255, 0, 0, 0.6) !important; 
+    font-size: small !important;
+    width: fit-content !important;
+}
+
+

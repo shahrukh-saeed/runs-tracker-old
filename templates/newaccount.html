@@ -11,11 +11,14 @@
 <body>
     <h1 class="title">Runs Tracker</h1>
     <form class="accountform" method="post" action="/confirmaccount">
-        <label for="username">Username <br> <input name="username" type="text" required /></label>
-        <label for="password">Password <br> <input  name="password" type="password" required /></label>
+        <label for="username">Username<br> <input name="username" type="text" required /></label>
+        <label for="password">Password<br> <input  name="password" type="password" required /></label>
+        <label for="confirm_password">Confirm Password<br> <input  name="confirm_password" type="password" required /></label>
         
         <input type="submit" value="Confirm"/><br>
         <input id="cancelbutton" type="button" onclick="window.location.href='/';" value="Cancel"/>
+
+        {% include 'error.html' %}
     </form>
 </body>
 </html>

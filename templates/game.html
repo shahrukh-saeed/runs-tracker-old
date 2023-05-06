@@ -44,12 +44,18 @@
                 <input type="hidden" name="runs" value="4"/>
                 <input class="runbutton" type="submit" value="4"/>
             </form>
-            <form class="lastrunbutton" method="post" action='/tracker/game/add'>
+            <form method="post" action='/tracker/game/add'>
                 <input type="hidden" name="team" value="team1"/>
                 <input type="hidden" name="id" value="{{id}}"/>
                 <input type="hidden" name="username" value="{{username}}"/>
                 <input type="hidden" name="runs" value="6"/>
                 <input class="runbutton" type="submit" value="6"/>
+            </form>
+            <form id="undoform" method="post" onsubmit="return confirm('Are you sure?');" action='/tracker/game/undo'>
+                <input type="hidden" name="team" value="team1"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input class="undobutton" type="submit" value="Undo"/>
             </form>
 
             <div> {{ team1 }} </div>
@@ -81,12 +87,18 @@
                 <input type="hidden" name="runs" value="4"/>
                 <input class="runbutton" type="submit" value="4"/>
             </form>
-            <form class="lastrunbutton" method="post" action='/tracker/game/add'>
+            <form method="post" action='/tracker/game/add'>
                 <input type="hidden" name="team" value="team2"/>
                 <input type="hidden" name="id" value="{{id}}"/>
                 <input type="hidden" name="username" value="{{username}}"/>
                 <input type="hidden" name="runs" value="6"/>
                 <input class="runbutton" type="submit" value="6"/>
+            </form>
+            <form method="post" onsubmit="return confirm('Are you sure?');" action='/tracker/game/undo'>
+                <input type="hidden" name="team" value="team2"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input class="undobutton" type="submit" value="Undo"/>
             </form>
             
 

@@ -19,10 +19,23 @@ def newAccount():
 def confirmAccount():
     ACCOUNTS = load_acc_from_db()
 
-    ACCOUNTS.append(request.form)
+    for acc in ACCOUNTS:
+        if acc['username'] == request.form['username']:
+            flash('Username Taken')
+            return render_template('newaccount.html')
 
-    add_acc_in_db(ACCOUNTS)
-    return render_template('home.html')
+    if request.form['password'] == request.form['confirm_password']:
+        ACCOUNTS.append({
+            'username': request.form['username'],
+            'password': request.form['password']
+        })
+        add_acc_in_db(ACCOUNTS)
+        return render_template('home.html')
+    
+    flash('Passwords Do Not Match')
+    return render_template('newaccount.html')
+
+    
 
 @app.route("/tracker", methods=['post', 'get'])
 def tracker():
@@ -84,6 +97,18 @@ def game():
     add_game_in_db(username, GAMES)
     return render_template('game.html', teamname1=teamname1, teamname2=teamname2, team1=0, team2=0, runs1=[], runs2=[], id=id, username=username)
 
+@app.route("/tracker/resume", methods=['post', 'get'])
+def gameResume():
+    GAMES = load_games_from_db()
+    username = request.form['username']
+    id = request.form['id']
+
+    for elem in GAMES:
+        if elem['username'] == username:
+            for game in elem['games']:
+                if game['id'] == id:
+                    return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+
 @app.route("/tracker/game/add", methods=['post', 'get'])
 def trackerGameRun():
     GAMES = load_games_from_db()
@@ -106,6 +131,50 @@ def trackerGameRun():
                         game['runs2'].append(int(runs))
                         add_game_in_db(username, GAMES)
                         return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+
+@app.route("/tracker/game/undo", methods=['post', 'get'])
+def trackerGameRunUndo():
+    GAMES = load_games_from_db()
+    id = request.form['id']
+    team = request.form['team']
+    username = request.form['username']
+
+    for elem in GAMES:
+        if elem['username'] == username:
+            for game in elem['games']:
+                if str(game['id']) == id:
+                    if team == "team1":
+                        if len(game['runs1']) > 0:
+                            game['team1'] -= game['runs1'].pop()
+                        else:
+                            return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        add_game_in_db(username, GAMES)
+                        return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                    elif team == "team2":
+                        if len(game['runs2']) > 0:
+                            game['team2'] -= game['runs2'].pop()
+                        else:
+                            return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        add_game_in_db(username, GAMES)
+                        return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+
+@app.route("/tracker/delete", methods=['post', 'get'])
+def trackerGameDel():
+    GAMES = load_games_from_db()
+    id = request.form['id']
+    username = request.form['username']
+    orig_games = []
+
+    for elem in GAMES:
+        if elem['username'] == username:
+            orig_games = elem['games']
+            for game in elem['games']:
+                if str(game['id']) == id:
+                    elem['games'].remove(game)
+                    add_game_in_db(username, GAMES)
+                    return render_template('tracker.html', games=reversed(elem['games']), username=username)
+    
+    return render_template('tracker.html', games=reversed(orig_games), username=username)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

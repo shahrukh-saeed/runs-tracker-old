@@ -28,6 +28,16 @@
             <small id="date"> {{ game['id'] }} </small>
             <div id="team1name">{{ game['teamname1']}}: {{ game['team1'] }}</div>
             <div>{{ game['teamname2']}}: {{ game['team2'] }}</div>
+            <form method="post" action='/tracker/resume'>
+                <input type="hidden" name="id" value="{{ game['id'] }}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input id="resumebutton" type="submit" value="Edit/Resume"/>
+            </form>
+            <form method="post" onsubmit="return confirm('Are you sure?');" action='/tracker/delete'>
+                <input type="hidden" name="id" value="{{ game['id'] }}"/>
+                <input type="hidden" name="username" value="{{username}}"/>
+                <input id="deletebutton" type="submit" value="Delete"/>
+            </form>
         {% endfor %}
     </div>
 </body>
