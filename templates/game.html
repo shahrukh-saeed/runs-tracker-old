@@ -15,14 +15,10 @@
         <input type="hidden" name="username" value="{{username}}"/>
         <input id="endgame" type="submit" value="End Game"/>
     </form>
-
-    <div class="container">
-        <h3 class="teamtitle"> {{ teamname1 }} </h3>
-        <h3 class="teamtitle"> {{ teamname2 }} </h3>
-    </div>
     
     <div class="bigcontainer">
         <div id="left-box" class="box">
+            <h3 class="teamtitle"> {{ teamname1 }} </h3>
             <form class="runform" method="post" action='/tracker/game/add'>
                 <input type="hidden" name="team" value="team1"/>
                 <input type="hidden" name="id" value="{{id}}"/>
@@ -66,6 +62,7 @@
         </div>
 
         <div id="right-box" class="box">
+            <h3 class="teamtitle"> {{ teamname2 }} </h3>
             <form method="post" action='/tracker/game/add'>
                 <input type="hidden" name="team" value="team2"/>
                 <input type="hidden" name="id" value="{{id}}"/>

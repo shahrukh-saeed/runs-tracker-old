@@ -27,7 +27,7 @@
             <h3 id="team1vsteam2">{{ game['teamname1'] + " - " + game['teamname2'] }}</h3>
             <small id="date"> {{ game['id'] }} </small>
             <div id="team1name">{{ game['teamname1']}}: {{ game['team1'] }}</div>
-            <div>{{ game['teamname2']}}: {{ game['team2'] }}</div>
+            <div id="team2name">{{ game['teamname2']}}: {{ game['team2'] }}</div>
             <form method="post" action='/tracker/resume'>
                 <input type="hidden" name="id" value="{{ game['id'] }}"/>
                 <input type="hidden" name="username" value="{{username}}"/>
