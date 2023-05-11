@@ -68,8 +68,7 @@ def game():
     username = request.form['username']
     teamname1 = request.form['teamname1']
     teamname2 = request.form['teamname2']
-    dt = datetime.now()
-    id = dt.strftime("%d/%m/%Y %H:%M:%S")
+    id = request.form['id']
 
     for elem in GAMES:
         if elem['username'] == username:
