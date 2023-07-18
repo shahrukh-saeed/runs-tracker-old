@@ -1,6 +1,6 @@
-# runs-tracker
+<img src="https://i.imgur.com/pCUSqKh.png" alt="runs-tracker-logo" width="200"/>
 
-![Runs Tracker Logo](https://i.imgur.com/pCUSqKh.png)
+# runs-tracker
 
 A web application designed to help casual cricket players keep track of games and runs using their phone.
 
