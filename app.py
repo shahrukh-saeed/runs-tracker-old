@@ -3,6 +3,7 @@ import json
 from flask import Flask, flash, jsonify, render_template, request
 from sqlalchemy import create_engine, text
 from database import load_acc_from_db, load_games_from_db, add_acc_in_db, add_game_in_db
+import hashlib
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -27,16 +28,14 @@ def confirmAccount():
     if request.form['password'] == request.form['confirm_password']:
         ACCOUNTS.append({
             'username': request.form['username'],
-            'password': request.form['password']
+            'password': hashlib.sha256(request.form['password'].encode()).hexdigest() 
         })
         add_acc_in_db(ACCOUNTS)
         return render_template('home.html')
     
     flash('Passwords Do Not Match')
     return render_template('newaccount.html')
-
     
-
 @app.route("/tracker", methods=['post', 'get'])
 def tracker():
     ACCOUNTS = load_acc_from_db()
@@ -44,7 +43,7 @@ def tracker():
     data = request.form
 
     for acc in ACCOUNTS:
-        if acc['username'] == data['username'] and acc['password'] == data['password']:
+        if acc['username'] == data['username'] and acc['password'] == hashlib.sha256(data['password'].encode()).hexdigest():
             for elem in GAMES:
                 if elem['username'] == data['username']:
                     return render_template('tracker.html', games=reversed(elem['games']), username=data['username'])
@@ -68,8 +67,7 @@ def game():
     username = request.form['username']
     teamname1 = request.form['teamname1']
     teamname2 = request.form['teamname2']
-    dt = datetime.now()
-    id = dt.strftime("%d/%m/%Y %H:%M:%S")
+    id = request.form['id']
 
     for elem in GAMES:
         if elem['username'] == username:

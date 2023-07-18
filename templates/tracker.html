@@ -15,6 +15,7 @@
 
     <form id="newgameform" method="post" action='/tracker/game'>
         <input type="hidden" name="username" value="{{username}}"/>
+        <input type="hidden" id="id" name="id" value=""/>
         <div id="gamename">Team 1</div>
         <input id="gamenameinput" name="teamname1" type="text" required />
         <div id="gamename">Team 2</div>
@@ -40,5 +41,12 @@
             </form>
         {% endfor %}
     </div>
+    <script>
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const d = new Date();
+        a = day[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + " | " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " | " + Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById("id").value = a;
+    </script>
 </body>
 </html>
