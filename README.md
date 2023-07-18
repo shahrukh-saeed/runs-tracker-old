@@ -6,6 +6,7 @@
 - Front-end & back-end validation of fields (eg. passwords matching confirmation, prevention of duplicate accounts - see [Sign Up](#sign-up))
 - MySQL database utilized to keep track of accounts and games history. Passwords hashed to ensure user information is kept safe.
 - Connected to the PlanetScale database platform and deployed as a web service on Render.
+- Screens: [Sign Up](#sign-up), [Login](#login), [Menu](#menu), [Tracker](#tracker) 
 
 ## Sign Up
 
