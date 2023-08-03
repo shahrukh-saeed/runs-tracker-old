@@ -123,12 +123,30 @@ def trackerGameRun():
                         game['team1'] += int(runs)
                         game['runs1'].append(int(runs))
                         add_game_in_db(username, GAMES)
-                        return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        return jsonify({
+                            'teamname1': game['teamname1'],
+                            'teamname2': game['teamname2'],
+                            'team1': game['team1'],
+                            'team2': game['team2'],
+                            'runs1': game['runs1'],
+                            'runs2': game['runs2'],
+                            'id': id,
+                            'username': username
+                        })
                     elif team == "team2":
                         game['team2'] += int(runs)
                         game['runs2'].append(int(runs))
                         add_game_in_db(username, GAMES)
-                        return render_template('game.html', teamname1=game['teamname1'], teamname2=game['teamname2'], team1=game['team1'], team2=game['team2'], runs1=game['runs1'], runs2=game['runs2'], id=id, username=username)
+                        return jsonify({
+                            'teamname1': game['teamname1'],
+                            'teamname2': game['teamname2'],
+                            'team1': game['team1'],
+                            'team2': game['team2'],
+                            'runs1': game['runs1'],
+                            'runs2': game['runs2'],
+                            'id': id,
+                            'username': username
+                        })
 
 @app.route("/tracker/game/undo", methods=['post', 'get'])
 def trackerGameRunUndo():

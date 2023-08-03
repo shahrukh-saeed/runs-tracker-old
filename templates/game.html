@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link = rel="stylesheet" href="/static/styles.css"/>
+    <link rel="stylesheet" href="/static/styles.css"/>
     {% include 'icon.html' %}
     <title>Runs Tracker</title>
 </head>
@@ -19,34 +19,11 @@
     <div class="bigcontainer">
         <div id="left-box" class="box">
             <h3 class="teamtitle"> {{ teamname1 }} </h3>
-            <form class="runform" method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team1"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="1"/>
-                <input class="runbutton" type="submit" value="1"/>
-            </form>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team1"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="2"/>
-                <input class="runbutton" type="submit" value="2"/>
-            </form>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team1"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="4"/>
-                <input class="runbutton" type="submit" value="4"/>
-            </form>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team1"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="6"/>
-                <input class="runbutton" type="submit" value="6"/>
-            </form>
+            <button class="runbutton" onclick="updateRuns('team1', '{{id}}', '{{username}}', 1)">1</button>
+            <button class="runbutton" onclick="updateRuns('team1', '{{id}}', '{{username}}', 2)">2</button>
+            <button class="runbutton" onclick="updateRuns('team1', '{{id}}', '{{username}}', 4)">4</button>
+            <button class="runbutton" onclick="updateRuns('team1', '{{id}}', '{{username}}', 6)">6</button>
+            
             <form id="undoform" method="post" onsubmit="return confirm('Are you sure?');" action='/tracker/game/undo'>
                 <input type="hidden" name="team" value="team1"/>
                 <input type="hidden" name="id" value="{{id}}"/>
@@ -54,7 +31,7 @@
                 <input class="undobutton" type="submit" value="Undo"/>
             </form>
 
-            <div> {{ team1 }} </div>
+            <div id="team1"> {{ team1 }} </div>
             {% for i in range(runs1|length - 1, -1, -1) %}
                 <div class="runs"> {{ runs1[i] }} </div>
             {% endfor %}
@@ -63,48 +40,99 @@
 
         <div id="right-box" class="box">
             <h3 class="teamtitle"> {{ teamname2 }} </h3>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team2"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="1"/>
-                <input class="runbutton" type="submit" value="1"/>
-            </form>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team2"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="2"/>
-                <input class="runbutton" type="submit" value="2"/>
-            </form>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team2"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="4"/>
-                <input class="runbutton" type="submit" value="4"/>
-            </form>
-            <form method="post" action='/tracker/game/add'>
-                <input type="hidden" name="team" value="team2"/>
-                <input type="hidden" name="id" value="{{id}}"/>
-                <input type="hidden" name="username" value="{{username}}"/>
-                <input type="hidden" name="runs" value="6"/>
-                <input class="runbutton" type="submit" value="6"/>
-            </form>
+            <button class="runbutton" onclick="updateRuns('team2', '{{id}}', '{{username}}', 1)">1</button>
+            <button class="runbutton" onclick="updateRuns('team2', '{{id}}', '{{username}}', 2)">2</button>
+            <button class="runbutton" onclick="updateRuns('team2', '{{id}}', '{{username}}', 4)">4</button>
+            <button class="runbutton" onclick="updateRuns('team2', '{{id}}', '{{username}}', 6)">6</button>
+
             <form method="post" onsubmit="return confirm('Are you sure?');" action='/tracker/game/undo'>
                 <input type="hidden" name="team" value="team2"/>
                 <input type="hidden" name="id" value="{{id}}"/>
                 <input type="hidden" name="username" value="{{username}}"/>
                 <input class="undobutton" type="submit" value="Undo"/>
             </form>
-            
 
-            <div> {{ team2 }} </div>
+            <div id="team2"> {{ team2 }} </div>
             {% for i in range(runs2|length - 1, -1, -1) %}
                 <div class="runs"> {{ runs2[i] }} </div>
             {% endfor %}
 
         </div>
     </div>
+
+    <script>
+        function updateRuns(team, id, username, runs) {
+            // Create an object to hold the data
+            var data = {
+                team: team,
+                id: id,
+                username: username,
+                runs: runs
+            };
+
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+
+            // Set up an event listener for when the request is complete
+            xhr.addEventListener('load', function () {
+                // Parse the response as JSON
+                var response = JSON.parse(this.responseText);
+
+                if (team == "team1") {
+                    // Update the page content with the new data
+                    document.querySelector('#team1').textContent = response.team1;
+                
+                    // Clear the existing runs
+                    var runElements;
+                    runsElements = document.querySelectorAll('#left-box .runs');
+                
+                    for (var i = 0; i < runsElements.length; i++) {
+                        runsElements[i].remove();
+                    }
+
+                    // Add the new runs
+                    for (var i = response.runs1.length - 1; i >= 0; i--) {
+                        var runElement = document.createElement('div');
+                        runElement.classList.add('runs');
+                        runElement.textContent = response.runs1[i];
+                        document.querySelector('#left-box').appendChild(runElement);
+                    }
+                } else if (team == "team2") {
+                    // Update the page content with the new data
+                    document.querySelector('#team2').textContent = response.team2;
+                
+                    // Clear the existing runs
+                    var runElements;
+                    runsElements = document.querySelectorAll('#right-box .runs');
+                
+                    for (var i = 0; i < runsElements.length; i++) {
+                        runsElements[i].remove();
+                    }
+
+                    // Add the new runs
+                    for (var i = response.runs2.length - 1; i >= 0; i--) {
+                        var runElement = document.createElement('div');
+                        runElement.classList.add('runs');
+                        runElement.textContent = response.runs2[i];
+                        document.querySelector('#right-box').appendChild(runElement);
+                    }                    
+                }
+            });
+
+            // Set up the request
+            xhr.open('POST', '/tracker/game/add');
+
+            // Set the request header to send form data
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            // Convert the data object to a query string
+            var queryString = Object.keys(data).map(function (key) {
+                return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+            }).join('&');
+
+            // Send the request with the data
+            xhr.send(queryString);
+        }
+    </script>
 </body>
 </html>

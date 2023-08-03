@@ -48,6 +48,14 @@ input {
     border: none;
 }
 
+input:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input:active {
+    background-color: rgb(0, 0, 0);
+}
+
 input[type="submit"] {
     color: rgb(255, 255, 255, 0.9);
     font-size: 20px;
@@ -56,12 +64,28 @@ input[type="submit"] {
     background-color: rgba(0, 255, 0, 0.6);
 }
 
+input[type="submit"]:hover {
+    background-color: rgba(0, 255, 0, 0.8);
+}
+
+input[type="submit"]:active {
+    background-color: rgb(0, 255, 0);
+}
+
 input[type="button"] {
     color: rgb(255, 255, 255, 0.9);
     font-size: 20px;
     margin-top: 1em;
     width: 197.53px;
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+input[type="button"]:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input[type="button"]:active {
+    background-color: rgb(0, 0, 0);
 }
 
 #error {
@@ -105,6 +129,14 @@ input[type="button"] {
     background-color: rgba(255, 0, 0, 0.6);
 }
 
+#endgame:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+#endgame:active {
+    background-color: rgb(255, 0, 0);
+}
+
 #logout {
     min-width: 300px;
     width: 50%;
@@ -112,6 +144,14 @@ input[type="button"] {
     margin: 10px auto;
     padding: 0px;
     background-color: rgba(255, 0, 0, 0.6);
+}
+
+#logout:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+#logout:active {
+    background-color: rgb(255, 0, 0);
 }
 
 #gamename {
@@ -190,9 +230,24 @@ input[type="button"] {
 }
 
 .runbutton {
-    margin: 0.5em auto !important;
+    display: block;
+    margin: 1em auto !important;
     width: 90% !important;
     max-width: 197.53px;
+    color: rgb(255, 255, 255, 0.9);
+    min-height: 2em;
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+    background-color: rgba(0, 255, 0, 0.6);
+}
+
+.runbutton:hover {
+    background-color: rgba(0, 255, 0, 0.8);
+}
+
+.runbutton:active {
+    background-color: rgb(0, 255, 0);
 }
 
 .lastrunbutton {
@@ -221,6 +276,14 @@ input[type="button"] {
     background-color: rgba(255, 0, 0, 0.6);
 }
 
+#cancelbutton:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+#cancelbutton:active {
+    background-color: rgb(255, 0, 0);
+}
+
 #deletebutton {
     margin-top: 0px;
     background-color: rgba(255, 0, 0, 0.6);
@@ -228,11 +291,27 @@ input[type="button"] {
     width: 105px;
 }
 
+#deletebutton:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+#deletebutton:active {
+    background-color: rgb(255, 0, 0);
+}
+
 #resumebutton {
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.6);
     font-size: small;
     width: 105px;
+}
+
+#resumebutton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#resumebutton:active {
+    background-color: rgb(0, 0, 0);
 }
 
 .undobutton {
@@ -243,4 +322,11 @@ input[type="button"] {
     width: fit-content !important;
 }
 
+.undobutton:hover {
+    background-color: rgba(255, 0, 0, 0.8) !important; 
+}
+
+.undobutton:active {
+    background-color: rgb(255, 0, 0) !important; 
+}
 
