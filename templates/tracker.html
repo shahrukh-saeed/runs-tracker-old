@@ -45,7 +45,7 @@
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const d = new Date();
-        a = day[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + " | " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " | " + Intl.DateTimeFormat().resolvedOptions().timeZone;
+        a = day[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + " | " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         document.getElementById("id").value = a;
     </script>
 </body>
