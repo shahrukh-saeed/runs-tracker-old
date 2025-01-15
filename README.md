@@ -1,6 +1,6 @@
 <img src="https://i.imgur.com/pCUSqKh.png" alt="runs-tracker-logo" width="100"/>
 
-# runs-tracker [www.runstracker.run](https://www.runstracker.run/)
+# runs-tracker
 
 - A Flask web application designed to help casual cricket players keep track of games and runs using their phone.
 - Front-end & back-end validation of fields (eg. passwords matching confirmation, prevention of duplicate accounts - see [Sign Up](#sign-up))
